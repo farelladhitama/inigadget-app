@@ -9,6 +9,7 @@ use Livewire\Volt\Volt;
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerAuthController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
@@ -17,6 +18,10 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/categories', [PageController::class, 'categories'])->name('categories');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
+// untuk otentikasi pelanggan
+
+
+// untuk dashboard dan pengaturan
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

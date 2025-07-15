@@ -32,4 +32,13 @@
         <p>Tidak ada produk tersedia.</p>
     @endforelse
 </div>
+
+{{-- Tombol Lihat Semua Produk --}}
+<div class="mt-8 text-center">
+    <a href="{{ route('products') }}"
+       class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-700 transition">
+        Lihat Semua Produk
+    </a>
+</div>
+
 @endsection
