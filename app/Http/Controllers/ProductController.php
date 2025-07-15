@@ -29,6 +29,20 @@ class ProductController extends Controller
         return view('pages.product', compact('products', 'brands', 'osTypes'));
     }
 
+    public function show($id)
+    {
+        $product = Product::with(['brand', 'osType'])->findOrFail($id);
+
+        $relatedProducts = Product::where('id', '!=', $product->id)
+            ->where(function ($query) use ($product) {
+                $query->where('brand_id', $product->brand_id)
+                    ->orWhere('os_type_id', $product->os_type_id);
+            })
+            ->limit(4)
+            ->get();
+
+        return view('pages.product-detail', compact('product', 'relatedProducts'));
+    }
 
 }
 ?>
