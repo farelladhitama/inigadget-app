@@ -13,7 +13,7 @@ class CustomerSeeder extends Seeder
         $faker = Faker::create('id_ID');
 
         $records = [];
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $records[] = [
                 'name'       => $faker->name(),
                 'email'      => $faker->unique()->safeEmail(),

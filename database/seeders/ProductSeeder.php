@@ -11,6 +11,11 @@ class ProductSeeder extends Seeder
 {
     public function run(): void
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;'); // Nonaktifkan constraint
+        DB::table('products')->truncate();          // Hapus isi table
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;'); // Aktifkan kembali constraint
+
+        // Lanjutkan seeding...
         $faker = Faker::create();
         $brands = DB::table('brands')->pluck('id')->toArray();
         $osTypes = DB::table('os_types')->pluck('id')->toArray();
@@ -31,4 +36,5 @@ class ProductSeeder extends Seeder
             ]);
         }
     }
+
 }

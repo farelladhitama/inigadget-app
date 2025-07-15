@@ -3,9 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
+
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
+
+Route::get('/', [PageController::class, 'home'])->name('home');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+
+Route::get('/categories', [PageController::class, 'categories'])->name('categories');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -19,4 +30,4 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
