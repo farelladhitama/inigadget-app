@@ -20,10 +20,7 @@ Route::get('/categories', [PageController::class, 'categories'])->name('categori
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-<<<<<<< HEAD
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-=======
->>>>>>> 91d0be385f5a6f7bf885bf24f2fdb704d4e48521
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show'); // ← DITAMBAHKAN
 
 
 
