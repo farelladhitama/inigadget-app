@@ -17,10 +17,10 @@
                     Belanja Sekarang
                 </a>
             </div>
-            <div class="w-full lg:w-1/2 text-center">
+            {{-- <div class="w-full lg:w-1/2 text-center">
                 <img src="https://cdn.pixabay.com/photo/2020/03/30/18/44/woman-4986012_960_720.png" alt="Hero Gadget"
                     class="w-full max-w-sm mx-auto rounded-xl shadow-lg">
-            </div>
+            </div> --}}
         </div>
     </section>
 
