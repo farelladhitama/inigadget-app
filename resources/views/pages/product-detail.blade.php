@@ -1,4 +1,3 @@
-
 @extends('layouts.layout')
 @section('title', $product->name)
 
@@ -20,13 +19,38 @@
                 Rp{{ number_format($product->price, 0, ',', '.') }}
             </p>
             
-            <div class="mb-4">
+            {{-- ======================================================= --}}
+            {{--          KODE UNTUK FITUR TAMBAH KERANJANG          --}}
+            {{-- ======================================================= --}}
+            <form action="{{ route('cart.add', $product->id) }}" method="POST" class="mt-6 border-t pt-6">
+                @csrf
+                <div class="flex items-center gap-4">
+                    <div>
+                        <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">Jumlah</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->stock }}"
+                               class="w-20 rounded border-gray-300 text-center shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+            
+                    <div class="flex-grow">
+                        <button type="submit"
+                                class="w-full bg-green-500 text-white font-bold px-8 py-3 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition ease-in-out duration-150">
+                            + Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {{-- ======================================================= --}}
+            {{--                   AKHIR KODE KERANJANG                  --}}
+            {{-- ======================================================= --}}
+            
+            <div class="mt-8">
                 <h2 class="text-lg font-semibold">Deskripsi:</h2>
                 <p class="text-gray-700 mt-1">{{ $product->description }}</p>
             </div>
+            
             {{-- Tombol Kembali --}}
             <a href="{{ route('products') }}"
-               class="mt-6 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">
+               class="mt-6 inline-block text-blue-600 hover:text-blue-800 transition">
                ← Kembali ke Daftar Produk
             </a>
         </div>
@@ -36,7 +60,7 @@
 
 {{-- Produk Rekomendasi --}}
 @if($relatedProducts->count())
-    <div class="max-w-7xl mx-auto mt-16">
+    <div class="max-w-7xl mx-auto mt-16 px-4 sm:px-6 lg:px-8"> {{-- Tambah padding agar tidak terlalu mepet --}}
         <h2 class="text-2xl font-bold mb-6">Rekomendasi Produk Lainnya</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach($relatedProducts as $related)
