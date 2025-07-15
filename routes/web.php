@@ -19,6 +19,8 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/categories', [PageController::class, 'categories'])->name('categories');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
 
 
 // autentikasi pelanggan
@@ -29,6 +31,7 @@ Route::controller(CustomerAuthController::class)->prefix('customer')->name('cust
     Route::post('/register', 'register')->name('register.post');
     Route::post('/logout', 'logout')->name('logout');
 });
+
 
 /* ------------------------------------------------------------------------
 |  Route yang hanya bisa diakses customer login

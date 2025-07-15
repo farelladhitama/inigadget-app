@@ -29,6 +29,14 @@ class ProductController extends Controller
         return view('pages.product', compact('products', 'brands', 'osTypes'));
     }
 
+    public function show(Product $product)
+    {
+        $product->load(['brand', 'osType']);
+        return view('pages.product-detail', compact('product'));
+    }
+
+
+
 
 }
 ?>
