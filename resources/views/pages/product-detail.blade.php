@@ -23,10 +23,6 @@
                 <h2 class="text-lg font-semibold">Deskripsi:</h2>
                 <p class="text-gray-700 mt-1">{{ $product->description }}</p>
             </div>
-
-            <p class="text-sm text-gray-400">Dibuat pada: {{ $product->created_at->format('d M Y, H:i') }}</p>
-            <p class="text-sm text-gray-400">Diperbarui: {{ $product->updated_at->format('d M Y, H:i') }}</p>
-
             {{-- Tombol Kembali --}}
             <a href="{{ route('products') }}"
                class="mt-6 inline-block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">
