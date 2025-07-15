@@ -28,7 +28,7 @@
                 <li>
                     <a href="#" class="flex items-center gap-3 text-gray-200 hover:text-white transition duration-200">
                         <i class="fab fa-twitter text-2xl text-sky-400"></i>
-                        <span class="text-base">Twitter</span>
+                        <span class="text-base">Twitte</span>
                     </a>
                 </li>
                 <li>
