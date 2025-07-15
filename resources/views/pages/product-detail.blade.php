@@ -35,6 +35,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 {{-- Produk Rekomendasi --}}
 @if($relatedProducts->count())
@@ -56,4 +57,6 @@
         </div>
     </div>
 @endif
+=======
+>>>>>>> 91d0be385f5a6f7bf885bf24f2fdb704d4e48521
 @endsection
